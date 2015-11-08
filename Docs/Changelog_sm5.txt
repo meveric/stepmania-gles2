@@ -1,0 +1,1294 @@
+﻿StepMania 5 Changelog
+________________________________________________________________________________
+The StepMania 5 Changelog covers all post-sm-ssc changes. For a list of changes
+from StepMania 4 alpha 5 to sm-ssc v1.2.5, see Changelog_sm-ssc.txt.
+________________________________________________________________________________
+
+================================================================================
+StepMania 5.0 beta 2 | 20130???
+--------------------------------------------------------------------------------
+
+2013/05/20
+----------
+* [NotesLoaderSM] New algorithm for converting negative BPMs and stops to
+  warps, more closely matching the behavior of old StepManias.
+
+2013/03/24
+----------
+* [MusicWheel] Add the ChangeSort method to the Lua interface to allow the
+  theme to switch sorting methods.
+
+2013/02/04
+----------
+* [Player] Add a "Column" parameter to the StepMessage to allow the theme or
+  chart to discover which column is being triggered.
+* [ArchHooks] Unix: Move UserPackages to Packages in the per-user directory,
+  and remove Data from the per-user directory.  Users who have installed
+  packages to UserPackages will need to migrate them to Packages instead.
+
+2013/02/03
+----------
+* [Player] Fix a stutter that can take place when mines are skipped during
+  warp segments. [phantom, wolfman2000]
+
+2013/01/23
+----------
+* [TimingData, ScreenEdit] Fixed behavior in the editor whereby making changes
+  to Song Timing would unexpectedly change all charts to Steps Timing.
+  (Thanks to DJ OMiY for reporting and isolating the problem.)
+
+2013/01/11
+----------
+* [Screen] Allow overlay screens to accept codes.
+
+2013/01/06
+----------
+* [TimingChanges, ScreenEdit] Fix a bug in the editor where adding BPM changes
+  that differ by a very small amount from the previous BPM change were not
+  added at all. [vulture/wolfman2000]
+
+2013/01/03
+----------
+* [ScreenGameplayShared] Fix routine mode. [djpohly/FSX/shakesoda/wolfman2000]
+
+================================================================================
+StepMania 5.0 beta 1a | 20121228
+--------------------------------------------------------------------------------
+
+2012/12/28
+----------
+* [default] Improved autogen icon and Oni life display. [Midiman]
+* [ScreenSelectMusic] Fix mouse events being eaten. [shakesoda]
+* [ScreenEdit] Remove extra zeroes from editor text entry. [djpohly]
+* [WheelBase] Add WheelBase.Move Lua binding. [shakesoda]
+
+2012/12/27
+----------
+* [default] Various theme improvements. [Midiman]
+* [PlayerStageStats] Restore SetScore and SetCurMaxScore Lua bindings. [shakesoda]
+
+2012/12/26
+----------
+* Code restructuring. [djpohly/wolfman2000]
+
+================================================================================
+StepMania 5.0 beta 1 | 20121225
+--------------------------------------------------------------------------------
+
+2012/12/25
+----------
+* [PlayerStageStats] Remove SetScore and SetCurMaxScore Lua bindings. [FSX]
+
+2012/12/24
+----------
+* [ScreenDebugOverlay] Don't reset the gamestate when reloading screens. Reloading
+   ScreenSelectMusic or any other screen which relies on that works now. [shakesoda]
+* [RageUtil] Fix math.random() never returning > 0.5. [vyhd]
+
+2012/12/18
+----------
+* [default] Fix Final Stage not appearing on StageInformation if a Long or Marathon song is
+   played as the last song. [FSX]
+* [fallback] Add Song:GetStageCost() [FSX]
+
+2012/12/17
+----------
+* [Font] Fix a unicode-related crash which would sometimes happen on SMO. [shakesoda]
+* [GameState] Fix arrow stuttering for cases where you get duplicated values between
+   updates. This helped significantly for PulseAudio on Ubuntu 12.04, for me. [shakesoda]
+
+2012/12/13
+----------
+* [RageDisplay_GLES2] Carry over a bunch of functionality from RageDisplay_OGL, still not
+   usable however. [shakesoda]
+
+2012/11/26
+----------
+* [ScreenSelectMusic] Only unchoose steps if there are more than 10 seconds on the timer
+   to prevent unchoosing steps for an infinite timer. [Marcio Barrientos]
+
+2012/11/22
+----------
+* [ProfileManager] Added SaveProfile, SaveLocalProfile, GetLocalProfileIDs,
+  ProfileFromMemoryCardIsNew, GetSongNumTimesPlayed, LocalProfileIDToDir, and
+  GetLocalProfileDisplayNames Lua bindings. [Alfred Sorenson]
+* [Profile] Add GetGUID Lua binding. [Alfred Sorenson]
+
+2012/11/13
+----------
+* [RageDisplay_OGL] Try to fix the shader compilation crash once and for all. [shakesoda]
+
+2012/10/31
+----------
+* [RageDisplay_GLES2] Initial GLES2 commit. Not functional. [shakesoda]
+
+2012/10/20
+----------
+* [NotesLoaderSMA] Fix default speed length for SMA files. [Aldo MX]
+* [NotesLoaderSMA] First segment required a zero. [Aldo MX]
+
+
+2012/10/17
+----------
+* [ScreenEdit] Don't allow ratings of 0. [shakesoda]
+
+2012/08/10
+----------
+* [InputHandler_Linux_PIUIO] Add interface to PIUIO kernel module. [djpohly]
+
+2012/08/04
+----------
+* General theme updates: made things faster, title menu updated. [Midiman]
+
+2012/07/26
+----------
+* [ScreenDebugOverlay] Added BackgroundColor metric. [AJ]
+
+2012/07/19
+----------
+* [OptionRow] Set text after running OnCommand so commands like "uppercase,true"
+  actually have a chance to work. [AJ]
+
+2012/07/17
+----------
+* [SongManager] Fix a bug where DVNO wouldn't always be gold. [AJ]
+
+================================================================================
+StepMania 5.0 alpha 3 | 20120711
+--------------------------------------------------------------------------------
+
+2012/07/11
+----------
+* [ScreenEditMenu] Don't use "Blank" in the description for blank steps;
+  use a blank string instead. [AJ]
+
+2012/07/10
+----------
+* [ScreenSelectMusic] Fix an issue where Control+<Letter> wouldn't work. [AJ]
+
+2012/07/09
+----------
+* [InputMapper] Use "|" for separating entries instead of ",", since some
+  companies have names like "x Ltd., something". [Mordae, AJ]
+
+2012/07/06
+----------
+* [ScoreDisplayRave] Add FrameBase and FrameOver to the metrics. [AJ]
+* [PlayerStageStats] Added GetSongsPassed and GetSongsPlayed Lua bindings. [AJ]
+
+2012/07/05
+----------
+* [ScreenRanking] Added "NextPage" command. "SwitchPage" command is
+  now "SwitchedPage". [AJ]
+* [ScreenRanking] Don't clobber alpha values when applying colors in SetPage. [AJ]
+
+2012/07/03
+----------
+* [ScreenHowToPlay] Actually shows notes again. [AJ]
+* [ScreenGameplay] When ShowLifeMeterForDisabledPlayers is true, don't fill up
+  life in the meter for the disabled player. (LifeMeterBar only) [AJ]
+
+2012/07/02
+----------
+* [ScreenHowToPlay] Run InitCommand on Characters if enabled. [AJ]
+* [RageUtil] Add detection of ".hg" to StripCvsAndSvn. [AJ]
+
+2012/06/27
+----------
+* [SongManager] Ending a group's name in PreferredSongs with "/*" will now load
+  all songs from that group automatically. [AJ]
+
+2012/06/21
+----------
+* [ProfileManager] Added GetPlayerName(pn) Lua binding. [AJ]
+
+2012/06/05
+----------
+* [GrooveRadar] Added SetFromValues(pn,{f1,f2,f3,f4,f5}) Lua binding. [AJ]
+
+2012/06/02
+----------
+* [PrefsManager] Added StretchBackgrounds preference. [AJ]
+* [BMSLoader] Add #banner support. [hanubeki]
+  Source: http://code.google.com/r/hanubeki-modified-sm-ssc/source/detail?r=bf8b57b9a662af59de66b9d06ca282f38f9126d9
+
+2012/05/31
+----------
+* [PaneDisplay] Added NullCountString metric. [AJ]
+* [PlayerOptions] Fixes to Get/Set[C, M, X]Mod Lua bindings. [hanubeki]
+  Source: http://code.google.com/r/hanubeki-modified-sm-ssc/source/detail?r=97761b5dc87b8c8a1b296985a09814337578c745
+
+2012/05/27
+----------
+* [MusicWheel] Added EmptyColor metric. [AJ]
+* [PlayerState] Enabled GetPlayerController Lua binding.
+
+2012/05/21
+----------
+* [NotesLoaderBMS] Support for #BMP based background changes. [theDtTvB]
+* [SongManager] Add song to the list of songs before loading it, this fixes
+  crashes in some BMS files. [theDtTvB]
+* [ScreenEdit] Allow a new way of creating and modifying attacks using the
+  Area Menu. Note: Using the C or V keys is no longer allowed for attacks.
+  It will simplify things for later. [Wolfman2000]
+* [Steps] Modified HasSignificantTimingChanges; the following now disqualify
+  when using a CMod: Stops, Delays, Warps, Speed Changes, Scroll Changes.
+  Songs with a non-constant BPM will only disqualify if the High/Low difference
+  is greater than 3.00. [AJ]
+
+2012/05/19
+----------
+* [Actor] Made the xy command a source-code level command. [AJ]
+
+2012/05/17
+----------
+* [LoadingWindow_Gtk] Actually resolve the path to the Splash file. [djpohly]
+
+2012/05/16
+----------
+* [ScreenWithMenuElements] Added DelayMusicSeconds metric. [AJ]
+* [ScreenOptionsMasterPrefs] Allow for FastLoadAdditionalSongs preference
+  to be called via the "conf" command. [AJ]
+
+2012/05/14
+----------
+* [Course] Added AllSongsAreFixed() Lua binding. [AJ]
+
+================================================================================
+StepMania 5.0 alpha 2 | 20120504
+--------------------------------------------------------------------------------
+
+2012/05/03
+----------
+* Add Var "Player" and Var "Controller" for NoteSkin. [hanubeki]
+  Sourced from http://code.google.com/r/hanubeki-modified-sm-ssc/source/detail?r=824cff29912d1c29a667046ba463d195e81c524a
+* [CustomSpeedMods] If a player decides to remove 1x from the machine profile's
+  custom speed mods, re-add it back in to avoid crashes. [AJ]
+
+2012/05/02
+----------
+* Make ReceptorArrowRow and GhostArrowRow respect the column draw order. [hanubeki]
+  Sourced from http://code.google.com/r/hanubeki-modified-sm-ssc/source/detail?r=8ccf7449651eef51e8c42d031aa64da49a0b72ce
+
+2012/04/25
+----------
+* [Profile] Added GetLastPlayedSong and GetLastPlayedCourse Lua bindings. [AJ]
+
+2012/04/22
+----------
+* [LifeMeterBar] Reverted a change from 2010 that messed with how the life meter
+  subtracts life. The life difficulty should match StepMania 3.9 again. [AJ]
+
+2012/04/08
+----------
+* [ScreenNetworkOptions] Fixed a bug where localized text would not show up
+  properly. Fixes issue 759. [AJ]
+* [Steps, Song] Replace Steps:UsesSplitTiming with
+  Song:IsStepsUsingDifferentTiming for both C++ and Lua. [wolfman2000]
+
+2012/04/06
+----------
+* Modify Jousway's planned noteskin to allow it to work with Technomotion
+  style gameplay. Expect minor bugs. [Jousway, Wolfman2000]
+
+2012/04/03
+----------
+* [PlayerOptions] Fix setting some effect mods that were always set to Drunk.
+  I wonder who had too much to drink. [TaroNuke]
+
+2012/03/31
+----------
+* [GameManager] Allow beat single7 and versus7 to be shown in Demonstration. [AJ]
+
+2012/03/28
+----------
+* [ScoreKeeperRave] Actually handle hold scores in HandleHoldScore().
+  Players should please provide feedback on how this affects gameplay, as this
+  is a temporary feature. [AJ]
+* [GameConstantsAndTypes] Made StageResult Lua-aware. [AJ]
+* [GameState] Added GetStageResult(pn) Lua binding. [AJ]
+* [Player] Keysounds now respect the volume settings. [hanubeki]
+  Sourced from hanubeki-modified-sm-ssc rev. 16fc5b714582
+
+2012/03/27
+----------
+* [ScreenEditMenu] Don't hardcode stopping the music on pressing the back button.
+  This interferes with the StopMusicOnBack metric. [AJ]
+
+2012/03/20
+----------
+* [Background] Fix 3D noteskins and dancing characters from clashing with each other. [shakesoda, AJ]
+* [NoteField] Fix 3D noteskins overlapping. [shakesoda, AJ]
+* [ScreenEdit] Don't use Step timing by default. [Midiman]
+* [ScreenEdit] Allow playback of course modifiers in Course Edit mode [Midiman]
+
+2012/03/15
+----------
+* [04 Scoring.lua] Added various 3.9 and 3.9+ scoring methods. [hanubeki]
+
+2012/03/12
+----------
+* Remove libtheora support since ffmpeg already supports theora videos. [cvpcs]
+
+2012/03/10
+----------
+* Update ffmpeg support to v0.10. [cvpcs]
+
+2012/03/09
+----------
+* [PlayerOptions] Don't display x-mods when using m-mods.
+  Sourced from hanubeki-modified-sm-ssc rev. bd08a58dd7cf and OpenITG.
+
+2012/03/08
+----------
+* [MusicWheel] Added RouletteStopped message, which is broadcast when Roulette
+  is finished and the wheel is locked. [AJ]
+* [WheelBase] Made WheelState a Lua-enabled enum and added
+  GetWheelState() Lua binding. Deprecated IsLocked() Lua binding. [AJ]
+
+2012/03/07
+----------
+* [ScreenSelectMaster] Now updates choices on player join; it will move the
+  scroller to the correct location, but the GainFocus/LoseFocus commands don't
+  seem to work. [AJ]
+
+2012/03/05
+----------
+* [GameCommand] Added GetDifficulty(), GetCourseDifficulty(), GetPlayMode(),
+  GetSortOrder(), GetAnnouncer(), GetPreferredModifiers(), and
+  GetStageModifiers() Lua bindings. [AJ]
+
+2012/03/04
+----------
+* [Player] Changed default Hold window to 0.250f, like it was in 3.9. [AJ]
+
+2012/03/02
+----------
+* [NotesLoaderBMS] Fix calculating stops, Support for #LNOBJ, Don't use #BACKBMP
+  as song background if main StepsType is beat-*. [hanubeki]
+  These changes constitute revisions f26caccf103e, 2d114b38c6c9, and b60f021d2b67
+  of hanubeki-modified-sm-ssc. (http://code.google.com/r/hanubeki-modified-sm-ssc/)
+
+2012/03/01
+----------
+* [MemoryCardManager] Disable Memory Cards by default. If you want to use them,
+set MemoryCards=1 in Save/Preferences.ini (or Save/Static.ini). [AJ]
+* [GameState] Set Premium to Premium_DoubleFor1Credit by default. [AJ]
+* [ScreenSelectMusic] Added PlaySoundOnEnteringOptionsMenu metric. [AJ]
+* [MusicWheel, WheelBase] Added collapse sound. [AJ]
+
+================================================================================
+StepMania 5.0 alpha 1a | 20120219
+--------------------------------------------------------------------------------
+
+2012/02/19
+----------
+* [Style] Added LockedDifficulty() Lua binding. [AJ]
+
+2012/02/15
+----------
+* [HighScore] Added Max Combo, Stage Award and Peak Award. New Lua bindings for
+  HighScore: GetMaxCombo(), GetStageAward(), GetPeakComboAward(). [AJ]
+  (the specifics of this are subject to change.)
+
+2012/02/10
+----------
+* [WheelBase, WheelItemBase] Turned WheelItemDataType into a Lua type,
+  made WheelBase:GetSelectedType() return the enum instead of a number. [AJ]
+
+2012/02/08
+----------
+* [ScreenEdit] Added support for editing keysounds. Use the Area Menu (Enter)
+  to either modify what sounds play on that row, or even remove a sound from
+  the list. Any sounds assigned to empty notes will automatically become
+  an AutoKeysound, and any AutoKeysounds that have their sound removed will
+  become empty notes. [Wolfman2000]
+
+2012/02/08
+----------
+* [ScreenOptionsMaster] Added StepsRowLayoutType metric.
+  (Valid values are "ShowAllInRow" or "ShowOneInRow".) [AJ]
+
+2012/01/23
+----------
+* [Player] Tap Note Scores (tns) can now be "AvoidMine" or "HitMine" in
+JudgmentMessageCommand. [Saturn2888, shakesoda]
+
+2012/01/15
+----------
+* [WheelNotifyIcon] Add the NumIconsToShow metric. [Wolfman2000]
+* [PlayerOptions] Fix a problem with m-mods where you would get m200 as
+  the default speed modifier. [AJ]
+
+2012/01/11
+----------
+* [ScreenEdit] Fix a floating point issue when dealing with speed segments.
+  [Wolfman2000]
+
+2012/01/09
+----------
+* [Song] Fix a bug introduced with "Only read certain tags during first load"
+  where song graphic files wouldn't load. [theDtTvB]
+
+================================================================================
+StepMania 5.0 alpha 1 | 20120108
+--------------------------------------------------------------------------------
+
+2012/01/08
+----------
+* [Song] Add HasPreviewVid and GetPreviewVidPath lua binding [cerbo]
+
+2012/01/08
+----------
+* [ScreenManager] Made AddScreenToTop take a second (optional) parameter for
+  posting a ScreenMessage on screen pop. [AJ]
+* Only read certain tags during first load; makes song loading faster. [theDtTvB]
+  
+2012/01/07
+----------
+* Fix Portable.ini not working on Mac OS X. [shakesoda]
+
+2012/01/05
+----------
+* [PercentageDisplay] Remove unused ApplyScoreDisplayOptions metric;
+  added PercentFormat and RemainderFormat metrics. [AJ]
+* Fix Portable.ini not working in Linux. [FSX]
+
+2012/01/04
+----------
+* Fix a scoring/grading bug with Lifts. [FSX]
+
+2011/12/27
+----------
+* [MusicWheel] Add IsRouletting Lua binding. [AJ]
+* [LuaManager] Remove GetOSName Lua binding; use GetArchName instead. [AJ]
+
+2011/12/26
+----------
+* [ArchHooks_OSX] Worked around a crash when language detection goes wrong.
+  Note: a real fix should be looked into. [shakesoda]
+
+2011/12/23
+----------
+* [Song] Fixed a bug where a sample start of 0 wouldn't work. [AJ]
+* [Game] Added CountNotesSeparately and GetMapJudgmentTo(TapNoteScore)
+  Lua bindings. [AJ]
+* [StepMania.cpp] Fix initial aspect ratio on first boot, hopefully.
+  (See issues 6 and 27) [AJ]
+
+2011/12/22
+----------
+* [LuaManager] Added ProductFamily() Lua binding. [AJ]
+
+2011/12/17
+----------
+* [Various] Allow loading of *.jpeg in addition to *.jpg. [AJ]
+
+2011/12/16
+----------
+* [StreamDisplay] Added VelocityMultiplier, VelocityMin, VelocityMax,
+  SpringMultiplier and ViscosityMultiplier metrics. [AJ]
+
+2011/12/12
+----------
+* [ScreenEdit] Add the GAMESTATE:InStepEditor Lua binding. [Wolfman2000]
+* [Player, ScreenGameplay] Allow failing on Oni without crashing. This one
+  took awhile. [Wolfman2000]
+* [LifeMeterBattery] Fixed various issues (lives not fully disappearing on fail,
+  P2 lose life animation having the wrong x zoom, hide the lives number if it
+  falls below 0). [AJ]
+
+2011/12/11
+----------
+* [ScreenEdit] Restore cycling the timing segments for jumping between.
+  The required line somehow never got replaced. [Wolfman2000]
+
+2011/11/30
+----------
+* [PlayerOptions] Added IsEasierForSongAndSteps(Song,Steps,PlayerNumber) and
+  IsEasierForCourseAndTrail(Course, Trail) Lua bindings. [AJ]
+* [PlayerState] Added GetSuperMeterLevel() Lua binding. [AJ]
+
+2011/11/28
+----------
+* [ScreenGameplay] Add the SurvivalModOverride metric. Let the themer decide
+  if mods should be overridden on survival or not. Funny enough, this used
+  to be true for the old Oni style mode, but...well, we'll cross that bridge
+  later. [Wolfman2000]
+* [LifeMeterBattery] Added MaxLives metric, which limits the maximum amount of
+  lives. Setting this to 0 will remove the limit. [AJ]
+
+2011/11/27
+----------
+* [PlayerOptions] Pretty large changes here, namely a bunch of new bindings.
+  Fixed the logic for GetReversePercentForColumn; It will now return nil for
+  invalid columns. Also fixed the logic for UsingReverse (now checks for 1.0f)
+  and SetPassmark (no longer allows values < 0.00f and > 1.0f). [AJ]
+* [ScreenEdit] Allow inserting and removing beats and timing changes in
+  specific note increments instead of just quarter notes (a whole beat).
+  Those that prefer to keep using the shortcut keys will note that the
+  behavior has not changed for that: only by going into the Area menu can you
+  deal with more specific changes. [Wolfman2000]
+
+2011/11/26
+----------
+* [ScreenEdit] Restore using F9 and F10 to adjust stops by a fixed amount.
+  Sorry for the delay in this. [Wolfman2000]
+* [ScreenEdit] Minor convenience. If you attempt to create a negative stop
+  segment from scratch, it does not create, and you are not requested to
+  save on exit, for there is nothing to save. [Wolfman2000]
+* [ScreenEdit] Allow Shift + F9/F10 for adjusting delays. This works the same
+  way as adjusting stops. [Wolfman2000]
+
+2011/11/25
+----------
+* [PlayerStageStats] Hitting a mine no longer gives you full combo when
+  [Gameplay] MineHitIncrementsMissCombo=true. [AJ]
+
+2011/11/24
+----------
+* [PlayerStageStats] Added GetFailed and GetNumControllerSteps Lua bindings. [AJ]
+
+2011/11/15
+----------
+* [LifeMeterBar] Added the ForceLifeDifficultyOnExtraStage metric and
+  the ExtraStageLifeDifficulty metric. Let the themer decide if extra stages 
+  should have their own life bar behavior. Note that this metric does NOT 
+  change the lifebar to the battery style. [Wolfman2000/FSX]
+
+2011/11/14
+----------
+* [Mac OS X] Restore JPEG functionality. [Wolfman2000]
+
+2011/11/06
+----------
+* [GameState] Add the RefreshNoteSkinData lua binding. This will only
+  refresh the NS data for the present game, not all games. [Wolfman2000]
+* [ScreenSelectMusic] Fixed Rave difficulties not being synced on late join.
+  Fixes issue 577. [AJ]
+* [GameplayAssist] Don't play sounds if the player is dead. Fixes issue 621. [AJ]
+
+2011/11/04
+----------
+* [ScoreKeeperRave] Revert fix from 2011/10/28. [AJ]
+* [ScoreKeeperRave] Fixed Miss and HitMine giving meter life.
+  (Fixes issue 622.) [AJ]
+
+2011/11/02
+----------
+* [ArchHooks] Add the GetArchName lua binding. To the themers that use
+  GetOSName, that function may be deprecated in the future. For now,
+  both options exist. [vyhd, Wolfman2000]
+
+2011/11/01
+----------
+* [ArrowEffects] Fix Expand, and possibly other mods, from breaking if
+  using a second player. [Wolfman2000]
+* [ArchHooks] Add the AppHasFocus lua binding. [vyhd, Wolfman2000]
+
+2011/10/29
+----------
+* [GameState] Add the ResetPlayerOptions lua binding. [Wolfman2000]
+
+2011/10/28
+----------
+* [ScoreKeeperRave] Fix an issue where the super meter would not decrease back
+  to 1 after hitting the end of 3. (Fixes issue 314.) [AJ]
+
+2011/10/27
+----------
+* [Default theme] Fixed the pref controlling timing segments on song meter. [FSX]
+
+2011/10/18
+----------
+* [LightsManager] Use song beat for menu button lights, allow demonstration to
+  flash pad lights when BlinkGameplayButtonLightsOnNote is true, light custom
+  game buttons when pressed during attract mode, general optimizations. [vyhd]
+
+2011/10/17
+----------
+* [ScreenEdit/NoteField] Fix an editor crash when you exit without saving
+  after creating new steps. [Wolfman2000]
+
+2011/10/16
+----------
+* [NoteDataUtil] Add the Backwards mod for games where the intended
+  definition of Mirror is different. Regarding Pump gameplay, what was
+  called Mirror in Preview 4 is considered Backwards now, and the original
+  Mirror is back in its old position. [Wolfman2000]
+
+2011/10/12
+----------
+* [Steps] Fix a bug where e.g. ".SM" ".DWI" ".Sm" ".sM" files
+  wouldn't properly load since the code was expecting lowercase. [AJ]
+
+2011/10/10
+----------
+* [NotesLoaderBMS] Add the time signature segments. [theDtTvB]
+
+2011/10/09
+----------
+* [NotesLoaderBMS] Fix the bug where keysounds that points to nonexistant file
+  gets assigned a random one. [theDtTvB]
+* [NotesLoaderBMS] Use BMSLoader to load PMS files. [theDtTvB]
+* [RageSoundReader_WAV] Fix ADPCM support. [theDtTvB]
+
+2011/10/08
+----------
+* [GameSoundManager] Add the PlayMusicPart lua binding. [Wolfman2000]
+* [ScreenEdit] Add the FadeInPreview and FadeOutPreview metrics. This controls
+  how long the fade in and fade outs are for playing the preview music.
+  The default values are 0 and 1.5 respectively. [Wolfman2000]
+
+2011/10/07
+----------
+* [RageDisplay] Add the GetFPS, GetVPF, and GetCumFPS bindings. [Wolfman2000]
+
+2011/10/06
+----------
+* Various scoring fixes sourced from http://www47.atwiki.jp/waiei/pages/21.html
+ [A.C/@waiei, 桜為小鳩/@sakuraponila]
+
+================================================================================
+StepMania 5.0 Preview 4 | 20111005
+--------------------------------------------------------------------------------
+
+2011/10/04
+----------
+* [NoteDataUtil] More accurate Left, Right, and Mirror mods for Pump gameplay.
+  Major thanks to Hudson Felker and Bill Shillito here. [Wolfman2000]
+
+2011/10/01
+----------
+* [ScreenHighScores] Disable forced screen transition behavior when
+  ManualScrolling=true. [AJ]
+
+2011/09/30
+----------
+* [GameState] Added CurrentOptionsDisqualifyPlayer(player),
+  ApplyPreferredModifiers(player,string) and ApplyStageModifiers(player,string)
+  Lua bindings. [AJ]
+
+2011/09/29
+----------
+* [Fallback theme] Fix ImmediateHoldLetGo function. [Wolfman2000]
+* [GameState] Add the EditAllowedForExtra metric. Use this if you want edit
+  steps to be allowed for accessing the extra stage. By default, this is
+  false. [Wolfman2000]
+
+2011/09/26
+----------
+* [Default theme] Added Song Timing Display user preference. [AJ]
+* [ThemeManager] Add global Scripts dir. [shakesoda]
+
+2011/09/25
+----------
+* [WheelItemBase] Added GetColor and GetText Lua bindings. [AJ]
+
+2011/09/24
+----------
+* [ScreenEdit] Disable shifting timing changes down one beat if starting on
+  beat 0. Important information must stay on that beat. [Wolfman2000]
+* [ScreenEdit] Disable converting rows to a stop or beat starting on beat 0.
+  There should be no reason for this at this time. [Wolfman2000]
+* [MusicWheelItem] Add/reinstate MusicWheelItem Mode Normal/Color/OverPart. [AJ]
+* [FadingBanner] Added LoadFromSortOrder(SortOrder) Lua binding. [AJ]
+
+2011/09/23
+----------
+* [ScreenEvaluation] Added RollingNumbersMaxComboClass metric. [AJ]
+* [NotesLoaderSM] Fix loading .sm files with non standard difficulty names.
+  It should be Hard, not Heavy. [Wolfman2000]
+
+2011/09/22
+----------
+* [ScreenDebugOverlay] Replaced hardcoded toggle command with
+  ButtonTextToggledCommand metric. [AJ]
+* [LoadingWindow_Win32] Make the StepMania window gain focus after the
+  loading window closes. Fixes issue 424. [AJ]
+
+2011/09/21
+----------
+* [FadingBanner] Added LoadRandom(), LoadRoulette(), LoadFallback(),
+  LoadCourseFallback(), and GetBanner(int) Lua bindings. [AJ]
+
+2011/09/18
+----------
+* [Song] Added GetSampleStart() and GetSampleLength() Lua bindings. [Wolfman2000]
+
+2011/09/16
+----------
+* [UnlockManager] Added GetNumLockedSongs() Lua binding. [Wolfman2000]
+* [UnlockManager] Added IsSongLocked() Lua binding. [Wolfman2000]
+
+2011/09/12
+----------
+* [NotesLoaderSSC/WriterSSC] Allow all timing tags regardless of what timing
+  is used. [Wolfman2000]
+
+2011/09/11
+----------
+* [ScreenEvaluation] Added "evaluation full combo W1" and
+  "evaluation full combo W2" announcer cues. [AJ]
+* [Banner] Added "Banner group fallback" graphic. [AJ]
+
+2011/09/09
+----------
+* [NotesLoaderBMS] Rewrite the BMS loader, should fix issues 430 and 500. [theDtTvB]
+
+2011/09/08
+----------
+* [GameManager] Fix shifting of 2P notes in beat mode. [1a2a3a2a1a]
+
+2011/09/07
+----------
+* [Model] Added GetDefaultAnimation() Lua binding. [AJ]
+* [GameState] Added GetEarnedExtraStage() Lua binding. [AJ]
+
+2011/09/02
+----------
+* [MenuTimer] Added start(), disable() Lua bindings. Also renamed setseconds to
+  SetSeconds to match GetSeconds. [AJ]
+* [GameManager] beat "versus" -> "versus5"; fix beat versus7 being "single7". [1a2a3a2a1a]
+
+2011/08/27
+----------
+* Updated libjpeg to 8c.
+* [SongManager] Added GetCoursesInGroup(sCourseGroup,bIncludeAutogen),
+  GetSongGroupBannerPath(songGroup), GetCourseGroupBannerPath(courseGroup),
+  DoesSongGroupExist(songGroup), DoesCourseGroupExist(courseGroup) and
+  GetPopularSongs() Lua bindings. [AJ]
+* [SongManager] Added GetPreferredSortSongs(), GetPreferredSortCourses(courseType,bIncludeAutogen),
+  and GetPopularCourses(courseType) Lua bindings. [AJ]
+* [SongManager] Add SongToPreferredSortSectionName(song), WasLoadedFromAdditionalSongs(song),
+  and WasLoadedFromAdditionalCourses(course) Lua bindings. [AJ]
+* [CryptManager] Add GenerateRandomUUID() Lua binding. [AJ]
+* [ThemeManager] Added DoesThemeExist(sTheme), IsThemeSelectable(sTheme),
+  DoesLanguageExist(sLang), GetCurThemeName(), HasMetric(sGroup,sValue), and
+  HasString(sGroup,sValue) Lua bindings. [AJ]
+
+2011/08/23
+----------
+* [Makefile.am] Fixed version date and time handling. [AJ]
+
+2011/08/22
+----------
+* [PrefsManager, X11Helper] Added ShowMouseCursor preference. [AJ]
+* [UnlockManager] Added GetStepOfAllTypes Lua binding. This gets the locked
+  Steps for all game types based on the difficulty specified. [Wolfman2000]
+* [UnlockManager] Added requirepasschallengesteps Lua binding. This is more
+  self-explanitory: pass challenge to be able to play edits. [Wolfman2000]
+
+2011/08/21
+----------
+* [NotesLoaderSSC] Fix loading pre-split timing files that had blank timing
+  tags inside of them. Thanks to Vin.il for the catch. [Wolfman2000]
+* [Song] Added Jacket, CD image (a la early DDR), and Disc (PIU-style) support.
+  Added GetJacketPath(), GetCDImagePath(), GetDiscPath(), HasJacket(), HasDisc(),
+  and HasCDImage() Lua bindings. [AJ]
+
+================================================================================
+StepMania 5.0 Preview 3 | 20110820
+--------------------------------------------------------------------------------
+
+2011/08/20
+----------
+* [PlayerOptions] Add GetMMod() Lua binding. [AJ]
+* [Player] Make keysounds respect volume preference. Fixes issue 344. [AJ]
+
+2011/08/19
+----------
+* [Steps] Add PredictMeter() and GetDisplayBPMType() Lua bindings. [AJ]
+* [Song] Add ShowInDemonstrationAndRanking() Lua binding. [AJ]
+* Turn off Autogen by default. [shakesoda]
+* Disable automatic aspect ratio guessing, default to 854x480
+  (16:9 because most newer displays are wide). [shakesoda]
+* Turn on FastLoad and FastLoadAdditionalSongs by default. [shakesoda]
+
+2011/08/18
+----------
+* [RageInput] Added "No input devices were loaded." string to languages. [AJ]
+* [RageInputDevice] Added localized names for InputDeviceState. [AJ]
+* [Course] Add IsPlayableIn(StepsType) and IsRanking() Lua bindings. [AJ]
+* [Trail] Added GetTotalMeter(), GetLengthSeconds(), IsSecret()
+  and ContainsSong(song) Lua bindings. [AJ]
+
+2011/08/16
+----------
+* Added PrettyPercent(numerator,denominator) Lua binding. [AJ]
+
+2011/08/14
+----------
+* [Foreground] Restore Foreground Changes for use in gameplay. Note that it
+  is recommended to use lua for #FGCHANGES from now on: not all XML changes
+  will work. [infamouspat]
+
+2011/08/13
+----------
+* [Theme-side] Added Fancy UI Background preference to Theme Options. [AJ]
+* [LowLevelWindow_X11] Don't force the window into the upper left corner. [ZipFile]
+
+2011/08/07
+----------
+* [LifeMeterBattery] Added LostLife param to LifeChanged message. [AJ]
+* [LifeMeterBattery] Converted LifeMeterBattery lives to an AutoActor. [AJ]
+* [TimingData] Add HasDelays() Lua binding; HasStops() now only checks stops. [AJ]
+* [GameState, SongUtil] Fix Issue 263 by not charging 2x stages for doubles when
+  not using joint premium. [AJ]
+* [BeginnerHelper] Made BeginnerHelper run the OnCommand. [AJ]
+* [GameState] add GetExpandedSectionName() Lua binding. [AJ]
+* [ScreenSelectMusic] Added IdleCommentSeconds metric and
+  "ScreenSelectMusic IdleComment" announcer sound. [AJ]
+* [NotesLoaderBMS] "Send the actual song file to LoadFromBMSFile in
+  BMSLoader::LoadNoteDataFromSimfile instead of the dummy one...
+  This fixes the wrong sound issue [423]..." [theDtTvB]
+
+2011/08/06
+----------
+* [NoteSkins/beat/default] Fix Issue 425. [AJ]
+* [ScoreDisplayRave] Allow (Meter/Level)(X/Y) metrics to work again. [AJ]
+
+2011/08/05
+----------
+* [NoteField] Added AreaHighlightColor metric. [AJ]
+
+2011/08/04
+----------
+* [NoteTypes, ScreenEdit] Removed artificial MAX_NOTES_PER_MEASURE limit. [AJ]
+
+2011/08/02
+----------
+* [NotesSSC] Only write timing/attack tags for the step if there is a
+  difference from the song. For timing tags, at this time it means that if even
+  one tag is different, all tags are written. [Wolfman2000]
+
+2011/08/01
+----------
+* [MusicWheel, RoomWheel] Moved the "- EMPTY -" string to the languages file. [AJ]
+
+2011/07/31
+----------
+* [ScreenGameplay, LyricDisplay] Stop lyrics from animating on failure.
+  Fixes issue 298. [AJ]
+
+2011/07/30
+----------
+* [ProfileManager] Fix an issue when deleting recently created profiles. [AJ]
+* Start removing anything related to Guitar mode. This was rushed in, and it
+  is not worth us keeping at this time. [Wolfman2000]
+
+2011/07/26
+----------
+* [ScreenEdit] Add a semi working implementation of the often requested
+  copy/paste selected timing data feature. This should make it easier for
+  some charters. [Wolfman2000]
+
+2011/07/21
+----------
+* [BeginnerHelper] Removed DancePadAngle metric in favor of DancePadOnCommand.
+  The same goes for PlayerAngle, dancer rotation is now handled in
+  PlayerP1/2OnCommand. [AJ]
+* [Course] Bumped up max edit course title length to 16 (still feels too short).
+  Also added #DESCRIPTION tag and Course:GetDescription() Lua binding. [AJ]
+
+2011/07/20
+----------
+* [Win32/CrashHandlerChild] Crashlog and log now open in the player's default
+  text editor. Also, the Show Log button works again, including for people using
+  Portable.ini. [AJ]
+
+2011/07/19
+----------
+* [LoadingWindow] Added the ability for themes to have custom splash banners.
+  (Currently Windows-only.) [AJ]
+
+2011/07/17
+----------
+* [Cache] No longer store #NOTES in the cache. This should speed things up
+  on the first load if there is not much to write. (General note: this was
+  taken from another branch, but results at that point were great.)
+  [Wolfman2000]
+
+2011/07/13
+----------
+* [Difficulty] Allow ALL StepsTypes to use CustomDifficulty properly.
+  There was some unfair targeting of Couple and Routine. [Wolfman2000]
+* [Steps] Calculate accurate radar values for Couple charts. [Wolfman2000]
+* [ScreenEdit] Display more accurate chart data for Couple and Routine charts
+  for the future. No more having (almost) every row as a jump! [Wolfman2000]
+
+2011/07/12
+----------
+* [OptionRowHandler] Add a new metric to ScreenOptionsMaster:
+  StepsUseChartName. Use this if you want your charts to have a unique name
+  in the options menu. If there is no #CHARTNAME or it is "Blank", it reverts
+  to the original behavior. This metric is false by default. [Wolfman2000]
+* [ScreenEdit] Fixed a bug involving #ATTACKS. Now when you set an attack,
+  the mods are reverted back to how they were prior to the attack being set.
+  [Wolfman2000]
+
+2011/07/09
+----------
+* [NotesTheUsual] Update the #COMBOS tag to allow for a Miss Combo attribute.
+  Any files that only use the Combo attribute will have that value copied to
+  miss combo on next launch. [Wolfman2000]
+* [ScoreKeeperNormal] Better match #COMBOS with eval. Scoring formulas should
+  not be affected, but it may require more testing. [Wolfman2000]
+* [Metrics] Have Pump mode lump the checkpoint judgments with Flawless and
+  Miss judgments on eval. Of course, this goes down to Perfect and Miss if
+  that is disabled. [Wolfman2000]
+
+2011/07/07
+----------
+* [ScreenEdit] Fix the NoMines transformation bug, issue 363. [Wolfman2000]
+* [CourseLoaderCRS] Don't load BEST# and WORST# where # is greater than the
+  number of songs installed. Fixes issue 373. [AJ]
+* [NotesAllSSC] Add the #CHARTNAME tag to the Steps. #DESCRIPTION is now for
+  more detailed descriptions, or perhaps some short hand lingo. All files
+  that used #DESCRIPTION will have their values moved to #CHARTNAME on
+  load. [Wolfman2000]
+* [ScreenEdit] Add a Steps Data menu for getting numerical step data on the
+  chart. This is a read only menu. Edit Steps Information contains writable
+  information. [Wolfman2000]
+* [NotesAllSSC] Add the Steps version of #DISPLAYBPM. The Song version is
+  still there, so themes should not have to worry about breakage.
+  [Wolfman2000]
+
+2011/07/06
+----------
+* [ScreenEdit] Fix the bug where hitting Enter during playing wouldn't take
+  the user back to the editor. [Wolfman2000]
+* [Gameplay] Fix Fail mods being dishonored. [Midiman]
+
+2011/07/05
+----------
+* [ScreenEdit] Restore dance-couple and pump-couple for editing purposes.
+  Saving should still work, but this was never tested yet. [Wolfman2000]
+* [ScreenOptions] Mini is now ITG Mini, and Tiny is now Pump Pro Mini.
+  This will prevent many prior courses from breaking. [sharksoda, Wolfman2000]
+* [CharacterManager] Add a lua function to check how many characters you have.
+  For an example of how this is used, check the default theme's scripts
+  folder, specifically 03 ThemePrefs.lua. [Wolfman2000]
+
+2011/07/04
+----------
+* [ScreenEdit] Add a function to switch the notes the routine players have to
+  hit. In simple terms, Player 1's notes are now Player 2's and vice~versa.
+  Check it out in the Alter Menu. [Wolfman2000]
+* [ScreenEdit] Add two routine mirroring functions. Now you can build sections
+  of a chart for one player, and mirror the effect for the other player when
+  finished. For Pump players, it is not a straight mirror, but is more akin
+  to what is found via normal routine charts. In other words, you'll be happy.
+  Check it out in the Alter Menu. [Wolfman2000]
+
+2011/07/03
+----------
+* [ScreenEdit] Fix a crash if one tries to remove an attack that doesn't
+  exist at that time. [Wolfman2000]
+
+================================================================================
+StepMania 5.0 Preview 2 | 20110703
+--------------------------------------------------------------------------------
+
+2011/07/03
+----------
+* [Player] Bring mMods from OpenITG over. Also, a metric was added,
+  "MModHighCap", to cap the speed mod if required for playing songs like
+  Tsuhsuixamush. Set the metric to 0 or less to remove the cap. [AJ, sharksoda,
+  Wolfman2000]
+
+2011/07/02
+----------
+* [ScreenEdit] Fixed a crash when hitting Enter in the F1 help menu. [AJ]
+
+2011/06/30
+----------
+* [NotesAll] Use #FIRSTSECOND, #LASTSECOND, and #LASTSECONDHINT instead of the
+  former BEAT equivalents. Split Timing has made this a necessity thanks to
+  certain files that abuse Stops/Delays more than usual. [Wolfman2000]
+* [ScreenEdit] Add a function in the Area Menu to designate the current beat
+  as the last second of the song. Please try to be smart and not use this too
+  early. [Wolfman2000]
+
+2011/06/28
+----------
+* [ScreenEdit] Add a function to copy/paste the TimingData of a player's
+  choice. Remember to be in the appropriate mode when copying and pasting.
+  By default, the song timing is already located in the clipboard, ready for
+  use. [Wolfman2000]
+
+2011/06/27
+----------
+* [Steps] Make sure #ATTACKS are copied when requested. [Wolfman2000]
+* [ScreenEdit] Have Step Author up front instead of Chart Style. This is
+  probably going to be better overall. [Wolfman2000]
+* [TimingData] Preserve the length of time for Speed Segment scaling when using
+  beats. [Wolfman2000]
+* [NotesLoader/WriterSSC] #OFFSET is to be before #ATTACKS. This is required if
+  we pursue beat based attacks and not just second based. [Wolfman2000]
+
+2011/06/26
+----------
+* [UnlockManager] New metric: AutoLockEditSteps. Use this to hide bonus charts
+  until the Expert steps are beaten. No guarantee that this works with no
+  challenge steps in the song. This defaults to false. [Wolfman2000]
+* [UnlockManager] New metric: SongsNotAdditional. Set to true to keep the
+  default behavior, false to have the AdditionalSongs folder contain
+  unlockable material. This is set to true to start. [Wolfman2000]
+* [ScreenEdit] Allow jumping between all segments, not just Label segments.
+  You still use Ctrl + ,/. to jump, but now you use Ctrl + N/M to cycle the
+  segments. By default, it starts with Label. [Wolfman2000]
+* [PlayerOptions] No longer display StepAttacks in the player's list.
+  Instead, show NoAttacks if attacks are disabled. [Wolfman2000]
+
+2011/06/24
+----------
+* [Actor] Implement compound(length,tweens) in _fallback/02 Actor.lua. [AJ]
+* [UnlockManager] Add a new unlock reward: StepsType. This is similar to
+  unlocking Steps, but it is targeted for one step in one stepstype rather
+  than one step in all stepstypes. This needs testing. [Wolfman2000]
+* [ScreenEdit] Add the option to convert delays to beats. Just find a better
+  song to use this on besides Uprock. [Wolfman2000]
+* [ScreenEdit] Fix a crash if you don't save any steps on a new song.
+  [Wolfman2000]
+* [NotesLoader/WriterSSC] Add support for Step #ATTACKS. Furthermore, Song
+  Attacks (or rather, Step Attacks as it should be called now) are turned on
+  by default instead of off. [Wolfman2000]
+
+2011/06/19
+----------
+* [EditMenu] Allow all songs to work in Practice Mode, regardless of folder
+  location. This fixes a crash if everyone had songs in AdditionalSongs.
+  [Wolfman2000]
+
+2011/06/17
+----------
+* [LifeMeterBattery] Fixed a bug where MinesSubtractLives was not being honored.
+  Also added LifeChanged message to changing of life on holds. [AJ]
+
+2011/06/15
+----------
+* [TimingData] Added many lua bindings for the other timing segments. GetWarps,
+  GetCombos, GetTimeSignatures, GetTickcounts, GetFakes, GetScrolls, GetSpeeds.
+  This should cover all of them now. [Wolfman2000]
+
+2011/06/13
+----------
+* [InputHandler_DirectInput] Fixed MouseWheel input not resetting. [AJ]
+* [ScreenTextEntry] Make it so only the keyboard's Enter key can finish the
+  screen. Should fix issues with buttons whose secondary function is MenuStart. [AJ]
+* [InputMapper] Modify default mappings. Use the Hyphen key instead of the
+  Numlock key for Player 2's GAME_BUTTON_BACK. This should address some
+  issues with Player 2 being unable to back out if they use a laptop.
+  [Wolfman2000]
+* [NoteDisplay] Add two new metrics.
+ * DrawRollHeadForTapsOnSameRow: bool, similar to DrawHoldHeadForTapsOnSameRow
+ * TapHoldRollOnRowMeansHold: bool, true means hold and false means roll
+ * No noteskins should require updating, as these were placed in common/common
+   for ease of use. [Wolfman2000]
+* [LifeMeterBattery] Added ChangeLives(int) Lua binding. [AJ]
+* [LifeMeterBattery] Added DangerThreshold metric. [AJ]
+* [LifeMeterBattery] Added some important metrics. [AJ]
+ * MinScoreToKeepLife='TapNoteScore_*' - any score below this = loss of life.
+ * SubtractLives=1 - how many lives are lost when going below MinScoreToKeepLife.
+ * MinesSubtractLives=1 - how many lives are lost when hitting a mine.
+ * HeldAddLives=0 - how many lives are gained when a hold is completed.
+ * LetGoSubtractLives=1 - how many lives are lost on a dropped hold.
+
+2011/06/12
+----------
+* [ScreenNetSelectMusic] Add PlayerOptionsScreen metric. [AJ]
+* [ScreenEdit] Restore the old PageUp/PageDown behavior, added Control + 
+  PageUp/PageDown to use recent time signature behavior. Laptop users, that
+  includes you guys too: semicolon and apostrophe are still good. [Wolfman2000]
+
+2011/06/11
+----------
+* [ScreenEdit] Allow setting the Music Preview via the Alter Menu. Just select
+  your area, enter the menu, and choose "Designate as Music Preview". No more
+  math calculations needed! [Wolfman2000]
+* [SongUtil] Added GetPlayableSteps(Song) Lua binding. [AJ]
+* [Steps] Allow 255 characters for all chart descriptions, including edits.
+  We are no longer bound by In The Groove I think. [Wolfman2000]
+* [Player] Add GetPlayerTimingData() Lua binding. [Wolfman2000]
+
+2011/06/10
+----------
+* [ScreenEdit] Split the Area Menu into the Area Menu and Alter Menu. Use the
+  "A" key to enter the Alter Menu when a selection of notes/rows are
+  highlighted. Use the Enter key to enter the old Area Menu for the options that
+  do not depend on selecting NoteData. [Wolfman2000]
+* [ScreenEdit] Allow converting selections to Delays, Warps, or Fakes as well
+  as Stops. Remember, use the Alter Menu for this. [Wolfman2000]
+
+2011/06/09
+----------
+* [ScreenSyncOverlay] Ensure that F11 / F12 work with all charts due to Split
+  Timing. [Wolfman2000]
+
+2011/06/08
+----------
+* Any notes in a fake segment or warp segment are completely ignored for
+  scoring purposes. Now you can get 100% on your warping goodness!
+  [Wolfman2000]
+
+2011/06/06
+----------
+* [PlayerOptions] Removed the ScoreDisplay mod choices. Use lua to make your
+  own scoring formulas that work in reverse instead. [Wolfman2000]
+* [ScreenGameplay] Fix an assist tick bug if there was no Player 1. Note that
+  this changes the behavior slightly: it is the first enabled player, or
+  master player, that gets the ticks now. A better solution will be looked at
+  in the future. [Wolfman2000]
+* [NoteDataUtil] Fix a radar issue involving hands. Unfortunately, this means
+  yet another cache reload for accuracy purposes. [Wolfman2000]
+
+2011/06/04
+----------
+* Changed default MusicWheelSwitchSpeed to 15 (was 10). [AJ]
+* [AnnouncerManager] Fixed a bug where no announcers would be loaded. [AJ]
+* Restored the UserPrefAutoSetStyle behavior. [Wolfman2000]
+* [NotesLoaderSMA] Better way of identifying beats and seconds. [Wolfman2000]
+
+================================================================================
+StepMania 5.0 Preview 1a | 20110603
+--------------------------------------------------------------------------------
+
+2011/06/03
+----------
+* [LifeMeterBattery] Added LivesLeft param to LifeChanged message. [AJ]
+* [Windows] Set up directories for pictures and app data in their proper
+  location. [Henke]
+* [NotesLoaderSM] Fix an Offset load bug. [Wolfman2000]
+
+2011/06/02
+----------
+* [BPMDisplay] Added SetFromSteps Lua binding. [AJ]
+* [ScreenDebugOverlay] Switch the R and T keys to be Volume Down and Up
+  respectively. I have to admit, it makes more sense to have volume up be
+  on the right instead of the left. [Wolfman2000]
+* [SongManager] Make autogen courses have "Autogen" as the Scripter. [AJ]
+
+2011/06/01
+----------
+* [TimingData] Added the HasScrollChanges lua binding. [Wolfman2000]
+* [ScreenEdit] Fix Song Timing behaviors. [Wolfman2000]
+
+2011/05/31
+----------
+* [Player] Added the BattleRaveMirror metric. This determines if Battle and
+  Rave mode will have the two players with mirrored charts or not. By default,
+  this is set to true, preserving the ITG style behavior. [Wolfman2000]
+* [TimingData] Added the HasScrollChanges lua binding. [Wolfman2000]
+
+================================================================================
+StepMania 5.0 Preview 1 | 20110529
+--------------------------------------------------------------------------------
+
+2011/05/27
+----------
+* [ScreenEdit] Added the LoopOnChartEnd metric. Once you get to the end of
+  the chart while playing it in the editor, this controls whether it loops and
+  plays again, or simply stops. By default, this is true, replicating current
+  behavior. Set to false to replicate older StepMania behavior. [Wolfman2000]
+
+2011/05/26
+----------
+* [ScoreKeeperNormal] Added the MissComboIsPerRow metric. Similar to the
+  ComboIsPerRow metric, this determines how much miss combo is earned on missing
+  a row of notes. By default, this is true. Set to false to replicate Pump Pro
+  behavior. [Wolfman2000]
+
+2011/05/25
+----------
+* [NotesLoaderSSC/NotesWriterSSC] Added the ScrollSegments. Think BPM change,
+  but not. [theDtTvB]
+
+2011/05/23
+----------
+* [Steps] Added the UsesSplitTiming Lua binding. [Wolfman2000]
+
+2011/05/20
+----------
+* [CryptManager] Added SHA1File Lua binding. [AJ]
+
+2011/05/19
+----------
+* [BPMDisplay] Add CourseCycleSpeed metric. [AJ]
+
+2011/05/17
+----------
+* [NotesWriterSM] Write out OpenITG compatible SM files from here on out.
+  This includes turning Warps into Negative Stops. For those that wanted
+  negative BPMs specifically, my apologies, but stops are easier on math.
+  [Wolfman2000]
+
+2011/05/16
+----------
+* [ProfileManager] Added ProfileWasLoadedFromMemoryCard(PlayerNumber)
+  Lua binding. [AJ]
+* Added #FAKES to the SSC format. Similar to the fake arrows, these blocks
+  prevent all judgments within the range. [Wolfman2000]
+* Changed the syntax of #WARPS slightly. Now the second value is the relative
+  distance that is skipped, not the absolute value when you start hitting
+  arrows again. [Wolfman2000]
+
+2011/05/15
+----------
+* [ScreenGameplay] Removed hardcoded commands for Debug (give up text) and
+  replace them with DebugStartOnCommand, DebugBackOnCommand, and
+  DebugTweenOffCommand. [AJ] 
+* Added #SPEEDS to the SSC format. This multiplies your scrolling speed during
+  gameplay, not replaces it (see mod attacks for replacing). [Wolfman2000]
+
+2011/05/14
+----------
+* [ModIcon] Added StopWords metric. [AJ]
+* [ScreenSelectMaster] Add "ScreenEmpty" param to MenuStartP# when the GameCommand
+  doesn't set a screen. [AJ]
+* [StepsDisplay] Added MeterFormatString metric. [AJ]
+* [MusicWheel] Added ShowSectionsInBPMSort and ShowSectionsInLengthSort metrics. [AJ]
+* [ScreenEvaluation] Stop the Bonus bars from overflowing in course modes. [AJ]
+* [Banner] Added ScrollMode and ScrollSortOrder metrics. [AJ]
+
+2011/05/13
+----------
+* Added Split Timing to .SSC files. All older .SSC files and other file
+  formats are converted to split timing on cache load. We are no longer bound
+  by Song Timing for everything. [theDtTvB, Wolfman2000, TeruFSX]
+
+2011/05/11
+----------
+* [GameSoundManager] Added PlayAnnouncer Lua binding. [AJ]
+* [AnnouncerManager] Add support for "gameplay combo #" for announcer. [AJ]
+
+2011/05/10
+----------
+* [Sprite] Added SetSecondsIntoAnimation Lua binding. [AJ]
+* [BPMDisplay] Added SetFromCourse Lua binding. [AJ]
+
+2011/05/03
+----------
+* [ScreenEdit] Allow changing the Beat 0 Offset, Music Sample Start, and
+  Music Sample Length via Edit Song Info menu. [Wolfman2000]
+
+2011/05/02
+----------
+* [ScreenSelectMusic] Added NullScoreString metric. [AJ]
+
+2011/04/17
+--------
+* Use lua for all primary score keeping. Course modes right now still use the
+  old fashioned system. [TeruFSX, Wolfman2000]
+
+2011/04/09
+--------
+* [Player] Force hold judgments to take place before setting the score.
+  [theDtTvB]
+
+2011/04/05
+--------
+* [NotesLoaderSSC, NotesWriterSSC] Add the #LABELS tag. This is meant for step
+  editors to label different parts of their stepcharts. Use Control + , or . to
+  jump to different labels made. [Wolfman2000]
+
