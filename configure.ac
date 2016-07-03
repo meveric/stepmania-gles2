@@ -146,6 +146,9 @@ powerpc*)
 	AC_DEFINE(CPU_PPC, 1, [PPC])
 	have_parallel_port=no
 	;;
+aarch*)
+	have_parallel_port=no
+	;;
 esac
 AM_CONDITIONAL(HAVE_PARALLEL_PORT, test "${have_parallel_port-yes}" = "yes")
 

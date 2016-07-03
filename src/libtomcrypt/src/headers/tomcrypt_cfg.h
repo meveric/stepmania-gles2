@@ -108,6 +108,12 @@ LTC_EXPORT int   LTC_CALL XSTRCMP(const char *s1, const char *s2);
   #define LTC_NO_ASM
 #endif
 
+/* ODROID C2 */
+#if defined (__AARCH64__)
+  #define EANDIAN_BIG
+  #define ENDIAN_64BITWORD
+#endif
+
 #ifdef LTC_NO_FAST
    #ifdef LTC_FAST
       #undef LTC_FAST
